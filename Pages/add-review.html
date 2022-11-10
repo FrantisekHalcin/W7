@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pridaj recenziu</title>
+    <style>
+        .top:visited,
+        link {
+            color: black
+        }
+
+        .top:hover {
+            font-weight: bold;
+            background-color: rgb(205, 221, 255);
+        }
+
+        .top {
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            border: solid black 1px;
+            padding: 5px;
+            background-color: rgb(189, 185, 255);
+            display: block;
+            text-align: right;
+        }
+
+        nav {
+            width: 180px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            position: fixed;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        form {
+            margin: auto;
+            background-color: rgb(254, 219, 149);
+            border: solid black 1px;
+            border-radius: 10px;
+            width: 50%;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        input,
+        textarea,
+        select {
+            color: black;
+            display: block;
+            margin: auto;
+            margin-bottom: 10px;
+            width: 80%;
+        }
+
+        .button {
+            width: 30%;
+        }
+
+        label {
+            color: rgb(32, 31, 31);
+            font-family: Verdana;
+            display: block;
+            margin: auto;
+            width: 80%;
+
+        }
+
+        h1 {
+            font-family: Verdana;
+            text-align: center;
+            color: antiquewhite;
+            padding: 5px;
+            margin: auto;
+            border: solid rgb(0, 0, 0) 2px;
+            border-radius: 10px;
+            background-color: rgb(79, 3, 3);
+            width: 50%;
+            margin-bottom: 5px;
+        }
+
+        #result {
+            background-color: aqua;
+            display: inline;
+            margin: auto;
+            padding: 0px;
+            position: relative;
+            left: 10px;
+            border: solid black 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pridaj recenziu</h1>
+    <form autocomplete="on">
+        <input type="text" placeholder="názov filmu" required>
+        <input type="text" id="nick" placeholder="meno/nick">
+        <input type="email" id="email" placeholder="email">
+        <textarea name="ofilme" cols="30" rows="10" placeholder="Čo sa vám na filme páčilo najviac?"></textarea>
+        <label for="date">Kedy ste videli tento film naposledy?</label>
+        <input type="date" name="date" id="date">
+        <label for="score">Aké hodnotenie by ste dali uvedenému filmu na stupnici od 0 do 100?<span
+                id="result"></span></label>
+        <input id="score" name="score" type="range" min="0" max="100" step="10" value="50" onChange="change();">
+        <label for="zaner">Do ktorého žánru by ste zaradili tento film?</label>
+        <select name="zaner" id="zaner">
+            <option value="blind">...</option>
+            <option value="romantic">romantický</option>
+            <option value="comedy">komédia</option>
+            <option value="action">akčný</option>
+            <option value="thriller">triler</option>
+            <option value="drama">dráma</option>
+            <option value="horror">horor</option>
+            <option value="sci-fi">sci-fi</option>
+        </select>
+        <input class="button" type="submit" value="odoslať informácie">
+    </form>
+    <nav>
+        <ul>
+            <li><a class="top" href="../index.html">Domov</a></li>
+            <li><a class="top" href="moviechart.html">TOP Filmy</a></li>
+            <li><a class="top" href="add-review.html">Pridať recenziu</a></li>
+        </ul>
+    </nav>
+    <script>
+        var result = document.getElementById("result");
+        var mine = document.getElementById("score");
+        function change() {
+            result.innerText = mine.value;
+        }
+    </script>
+</body>
+
+
+
+</html>
